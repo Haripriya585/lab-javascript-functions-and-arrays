@@ -1,10 +1,37 @@
 // Progression #1: Greatest of the two numbers
-
+function greatestOfTwoNumbers(a, b) {
+  if (a > b) {
+    return a;
+  }
+  else
+    return b;
+}
 // Progression #2: The lengthy word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+function findScaryWord(words) {
+  if (words.length == 0) {
+    return null;
+  }
+  max = words[0];
+  for (var i = 0; i < words.length; i++) {
+    if (max.length < words[i].length) {
+      max = words[i];
+    }
+  }
+  return max;
+}
 // Progression #3: Net Price
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+function netPrice(prices) {
+  if (prices.length == 0) {
+    return 0;
+  }
+  var sum = 0;
+  for (var i = 0; i < prices.length; i++) {
+    sum = sum + prices[i];
+  }
+  return sum;
+}
 
 // Progression #4: Calculate the average
 // Progression 4.1: Array of numbers
@@ -28,10 +55,31 @@ const wordsUnique = [
   'egg',
   'flour'
 ];
-
+function uniqueArray(wordsUnique) {
+  if (wordsUnique.length == 0) {
+    return null;
+  }
+  var newarr = [];
+  for (var i = 0; i < wordsUnique.length; i++) {
+    if (newarr.indexOf(wordsUnique[i]) == -1) {
+      newarr[i] = wordsUnique[i];
+    }
+  }
+  return newarr;
+}
 // Progression #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
-
+function searchElement(wordsfind, searchval) {
+  if (wordsfind.length == 0) {
+    return null;
+  }
+  var i = wordsfind.indexOf(searchval);
+  if (i == -1) {
+    return false;
+  }
+  else
+    return true;
+}
 // Progression #7: Count repetition
 const wordsCount = [
   'machine',
@@ -46,7 +94,18 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
-
+function howManyTimesElementRepeated(wordsCount, charval) {
+  if (wordsCount.length == 0) {
+    return 0;
+  }
+  var nooftimes = 0;
+  for (var i = 0; i < wordsCount.length; i++) {
+    if (wordsCount[i] == charval) {
+      nooftimes = nooftimes + 1;
+    }
+  }
+  return nooftimes;
+}
 // Progression #8: Bonus
 
 const matrix = [
