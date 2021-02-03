@@ -32,7 +32,32 @@ function netPrice(prices) {
   }
   return sum;
 }
-
+function add(mixedarr) {
+  if (mixedarr.length == 0) {
+    return 0;
+  }
+  var sum = 0;
+  for (var i = 0; i < mixedarr.length; i++) {
+    if (typeof (mixedarr[i]) == 'object') {
+      throw new Error('Unsupported data type sir or ma\'am');
+    }
+    else if (typeof (mixedarr[i]) == 'string') {
+      sum = sum + mixedarr[i].length;
+    }
+    else if (mixedarr[i] == true) {
+      sum = sum + 1;
+    }
+    else if (mixedarr[i] == false) {
+      sum = sum + 0;
+    }
+    else if (mixedarr[i] == 0) {
+      sum = sum + 0;
+    }
+    else
+      sum = sum + mixedarr[i];
+  }
+  return sum;
+}
 // Progression #4: Calculate the average
 // Progression 4.1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
@@ -55,6 +80,14 @@ function averageWordLength(wordsArr) {
     sumval = sumval + wordsArr[i].length;
   }
   return (sumval / (wordsArr.length));
+}
+function avg(arr) {
+  if (arr.length == 0) {
+    return null;
+  }
+  var sumval = add(arr);
+  sumval = sumval / (arr.length);
+  return Number(sumval.toFixed(2));
 }
 // Progression #5: Unique arrays
 const wordsUnique = [
@@ -142,7 +175,7 @@ function maximumProduct(matrix) {
   for (var i = 0; i < 10; i++) {
     for (var j = 0; j < 6; j++) {
       max1 = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
-      if (maxValue < max1) {
+      if (maxValue <= max1) {
         maxValue = max1;
       }
     }
@@ -150,7 +183,7 @@ function maximumProduct(matrix) {
   for (var i = 0; i < 10; i++) {
     for (var j = 0; j < 6; j++) {
       max2 = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
-      if (maxValue < max2) {
+      if (maxValue <= max2) {
         maxValue = max2;
       }
     }
