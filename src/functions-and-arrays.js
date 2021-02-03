@@ -36,10 +36,26 @@ function netPrice(prices) {
 // Progression #4: Calculate the average
 // Progression 4.1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+function midPointOfLevels(val) {
+  if (val.length == 0) {
+    return null;
+  }
+  var sumval = netPrice(val);
+  sumval = sumval / (val.length)
+  return sumval;
+}
 // Progression 4.2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
+function averageWordLength(wordsArr) {
+  if (wordsArr.length == 0) {
+    return null;
+  }
+  var sumval = 0;
+  for (var i = 0; i < wordsArr.length; i++) {
+    sumval = sumval + wordsArr[i].length;
+  }
+  return (sumval / (wordsArr.length));
+}
 // Progression #5: Unique arrays
 const wordsUnique = [
   'bread',
@@ -120,3 +136,37 @@ const matrix = [
   [24, 55, 58, 05, 66, 73, 99, 26, 97, 17],
   [21, 36, 23, 09, 75, 00, 76, 44, 20, 45]
 ];
+function maximumProduct(matrix) {
+
+  var maxvalue = 0;
+  for (var i = 0; i < 10; i++) {
+    for (var j = 0; j < 6; j++) {
+      max1 = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (maxValue < max1) {
+        maxValue = max1;
+      }
+    }
+  }
+  for (var i = 0; i < 10; i++) {
+    for (var j = 0; j < 6; j++) {
+      max2 = matrix[j][i] * matrix[j][i + 1] * matrix[j][i + 2] * matrix[j][i + 3];
+      if (maxValue < max2) {
+        maxValue = max2;
+      }
+    }
+  }
+  return maxvalue;
+}
+function maximumProductOfDiagonals(matrix) {
+  var j = 9;
+  var maxvalue = 0;
+  for (var i = 0; i < 6; i++) {
+    maxvalue = matrix[i][i] * matrix[i][i + 1] * matrix[i][i + 2] * matrix[i][i + 3];
+  }
+
+  for (var i = 0; i < 6; i++) {
+    maxvalue = matrix[i][j] * matrix[i][j - 1] * matrix[i][j - 2] * matrix[i][j - 3];
+    j = j - 1;
+  }
+  return maxvalue;
+}
